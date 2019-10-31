@@ -39,5 +39,24 @@ router.put('/update', function (req, res) {
     })
     
 })
-
+router.get('/expenses/:group', function (req, res) {
+     if(req.query.total)
+     {
+        Expense.aggregate([
+            { $match: { group: `${req.params.group}` } },
+            { $group: { _id: "$group", total: { $sum: "$amount" } } }
+          ]).exec(function (err, totalAmount) {
+            if(err){res.send(err.errmsg)}
+             if(!totalAmount.length){ return res.send("Empty") }
+               
+            console.log(totalAmount[0].total)
+              let total=totalAmount[0].total
+            res.send (total.toString())
+          })
+     }
+     else{
+    Expense.find({group: `${req.params.group}`}).exec(function (err, expensesByGroup) {
+        res.send(expensesByGroup)
+    })}
+})
 module.exports = router
