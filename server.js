@@ -20,7 +20,7 @@ app.listen(port, function () {
 })
 
 // Adding json db for my local DB
-// for (const d of dbdata) {
+// for (const d of dbdata) {5
 //     const expense = new Expense(d)
 //     expense.save()
 // }
