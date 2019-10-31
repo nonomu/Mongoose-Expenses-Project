@@ -1,0 +1,13 @@
+db.expenses.findOneAndUpdate(
+    {name : "yakov"},
+    { $set: { group:  "Noam" } }
+
+)
+
+db.expenses.find(
+    {name : "yakov"}
+
+)
+db.expenses.find(
+    {"$oid": "5db985ae9dc9262370a49a03"}
+)
