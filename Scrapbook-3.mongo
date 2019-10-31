@@ -1,5 +1,0 @@
-db.expenses.aggregate([
-                     { $match: { group: "fat" } },
-                     { $group: { _id: "$group", total: { $sum: "$amount" } } },
-                     { $sort: { total: -1 } }
-                   ])

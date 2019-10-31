@@ -1,3 +1,0 @@
-db.expenses.find({
-    "$oid":"5dbaa8d9612a5e379ce5079c"
-})
